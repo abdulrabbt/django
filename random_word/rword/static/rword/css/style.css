@@ -1,0 +1,20 @@
+
+.con-text{
+    
+    text-align: center;
+    
+    margin-top: 10%; 
+    margin-left: 30%;  
+    font-size: 30px;
+    width: 500px;
+}
+
+.con-time{
+    
+    text-align: center;
+    border: 5px solid black;
+    margin-top: 2%;   
+    margin-left: 23%;
+    font-size: 25px;
+    width: 700px;
+}
