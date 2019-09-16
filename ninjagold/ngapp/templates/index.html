@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' integrity='sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==' crossorigin='anonymous'>
+</head>
+<body>
+    <div class='container' style="margin-top: 20px">
+        <div class='row'>
+            <h2>Your gold: {{counter}} <a href="clear" class='btn btn-default' role='button'>Reset gold</a> </h2>
+        </div>
+        <div class='row' >
+            <div class='col-md-3' style="border: 1px solid black">
+                <h3>Farm</h3>
+                <p>earns 10-20 gold</p>
+                <form action="process_money" method='POST'>
+                    {% csrf_token %}
+                    <div class='form-group'>
+                        {{ farmForm }}
+                        <input type='submit' name='submit' class='btn btn-success'/>
+                    </div>
+                </form>
+            </div>
+            <div class='col-md-3' style="border: 1px solid black">
+                <h3>Cave</h3>
+                <p>earns 5-10 gold</p>
+                <form action="process_money" method='POST'>
+                    {% csrf_token %}
+                    <div class='form-group'>
+                        {{ caveForm }}
+                        <input type='submit' name='submit' class='btn btn-success'/>
+                    </div>
+                </form>
+            </div>
+            <div class='col-md-3' style="border: 1px solid black">
+                <h3>House</h3>
+                <p>earns 2-5 gold</p>
+                <form action="process_money" method='POST'>
+                    {% csrf_token %}
+                    <div class='form-group'>
+                        {{ houseForm }}
+                        <input type='submit' name='submit' class='btn btn-success'/>
+                    </div>
+                </form>
+            </div>
+            <div class='col-md-3' style="border: 1px solid black">
+                <h3>Casino</h3>
+                <p>earns/loses 0-50 gold</p>
+                <form action="process_money" method='POST'>
+                    {% csrf_token %}
+                    <div class='form-group'>
+                        {{ casinoForm }}
+                        <input type='submit' name='submit' class='btn btn-success'/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='activitiesContainer'>
+                <h3>Activities:</h3>
+                <div class='activities'>
+                    {% for activity in activities %}    
+                    <p>{{activity}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
